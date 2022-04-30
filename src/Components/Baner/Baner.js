@@ -20,13 +20,13 @@ const Baner = () => {
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 2500,
+            delay: 3500,
             disableOnInteraction: false,
           }}
           pagination={{
             clickable: true,
           }}
-          navigation={true}
+          // navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >

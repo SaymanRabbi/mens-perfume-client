@@ -9,7 +9,7 @@ const Header = () => {
         <nav className="bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
-              <div className="flex items-center">
+              <div className="flex items-center w-full">
                 <div className="flex-shrink-0">
                   <img
                     className="h-8 w-8"
@@ -33,27 +33,22 @@ const Header = () => {
                       Product
                     </Link>
   
-                    <a
-                      href="#m"
+                    <Link
+                      to='/blog'
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Projects
-                    </a>
-  
-                    <a
-                      href="#c"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Calendar
-                    </a>
-  
-                    <a
-                      href="#g"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Reports
-                    </a>
+                      Blog
+                    </Link>
+
                   </div>
+                </div>
+                <div className='d-block ml-auto'>
+                <Link
+                      to='/login'
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Login
+                    </Link>
                 </div>
               </div>
               <div className="-mr-2 flex md:hidden">
@@ -100,6 +95,7 @@ const Header = () => {
                   )}
                 </button>
               </div>
+              
             </div>
           </div>
   
@@ -115,40 +111,28 @@ const Header = () => {
             {(ref) => (
               <div className="md:hidden" id="mobile-menu">
                 <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <a
-                    href="#r"
+                  <Link
+                   to='/'
                     className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                   >
-                    Dashboard
-                  </a>
+                    Home
+                  </Link>
   
-                  <a
-                    href="#o"
+                  <Link
+                    to='/product'
                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                   >
-                    Team
-                  </a>
+                     Product
+                  </Link>
   
-                  <a
-                    href="#n"
+                  <Link
+                    to='/blog'
                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                   >
-                    Projects
-                  </a>
+                   Blog
+                  </Link>
   
-                  <a
-                    href="#p"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
-                    Calendar
-                  </a>
-  
-                  <a
-                    href="#t"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
-                    Reports
-                  </a>
+                 
                 </div>
               </div>
             )}
