@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { Transition } from "@headlessui/react";
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import {signOut } from 'firebase/auth';
 
 const Header = () => {
+  const [user,] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
     const [isOpen, setIsOpen] = useState(false);
     return (
         <div>
@@ -39,16 +46,43 @@ const Header = () => {
                     >
                       Blog
                     </Link>
+                    {user&& <> <Link
+                      to='/managesitem'
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Manages Item
+                    </Link>
+                    <Link
+                      to='/myitem'
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      My Item
+                      </Link>
+                      <Link
+                      to='/addItem'
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Add Item
+                    </Link>
+                    </>
+                    }
 
                   </div>
                 </div>
                 <div className='d-block ml-auto'>
-                <Link
-                      to='/login'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Login
-                    </Link>
+                  {
+                    user?<Link
+                    to='/login' onClick={logout}
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
+                  >
+                    logout
+                  </Link>:<Link
+                    to='/login'
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    login
+                  </Link>
+                }
                 </div>
               </div>
               <div className="-mr-2 flex md:hidden">
@@ -131,7 +165,26 @@ const Header = () => {
                   >
                    Blog
                   </Link>
-  
+                  {user&& <div> <Link
+                      to='/managesitem'
+                      className="text-gray-300 block hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Manages Item
+                    </Link>
+                    <Link
+                      to='/myitem'
+                      className="text-gray-300 block hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      My Item
+                      </Link>
+                      <Link
+                      to='/addItem'
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Add Item
+                    </Link>
+                    </div>
+                    }
                  
                 </div>
               </div>
