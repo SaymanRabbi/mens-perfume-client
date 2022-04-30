@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Transition } from "@headlessui/react";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,19 +19,19 @@ const Header = () => {
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    <a
-                      href="#g"
+                    <Link
+                      to='/'
                       className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Dashboard
-                    </a>
+                      Home
+                    </Link>
   
-                    <a
-                      href="#j"
+                    <Link
+                      to='/product'
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Team
-                    </a>
+                      Product
+                    </Link>
   
                     <a
                       href="#m"
