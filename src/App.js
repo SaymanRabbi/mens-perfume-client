@@ -13,6 +13,7 @@ import ManagesItem from './Components/ManagesItem/ManagesItem';
 import Myitem from './Components/Myitem/Myitem';
 import AddItem from './Components/AddItem/AddItem';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import UpdatedProduct from './Components/Products/UpdatedProduct';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
        
         <Route path='/myitem' element={<Myitem></Myitem>}></Route>
         <Route path='/addItem' element={<AddItem></AddItem>}></Route>
+        <Route path='/updatepd/:id' element={<RequireAuth>
+          <UpdatedProduct></UpdatedProduct>
+        </RequireAuth>}></Route>
       </Routes>
     </div>
   );
