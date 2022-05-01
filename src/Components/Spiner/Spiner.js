@@ -1,10 +1,15 @@
 import React from 'react';
-import { Oval } from 'react-loader-spinner';
+import { useState } from "react";
+// import ClipLoader from "react-spinners/ClipLoader";
+import { BounceLoader } from 'react-spinners';
 
 const Spiner = () => {
+    let [loading, ] = useState(true);
+    let [color, ] = useState("#86E7D4");
     return (
         <div className='w-full flex justify-center items-center' style={{minHeight:'100vh'}}>
-            <Oval color="#00BFFF" height={80} width={80} />
+            <BounceLoader
+ color={color} loading={loading}size={60} />
         </div>
     );
 };

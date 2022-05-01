@@ -31,7 +31,7 @@ const Useicon = () => {
         signInWithFacebook()
     }
     return (
-        <div className='w-2/4 mx-auto mt-6 flex gap-4 justify-center items-center'>
+        <div className='w-3/4 mx-auto mt-6 flex gap-4 justify-center items-center'>
             <div onClick={signinGoogle} className='w-[40px] h-[40px] icon-style google text-red-700'><FontAwesomeIcon icon={faGoogle}size="2x" /></div>
                         <div onClick={facebooklogin} className='w-[40px] h-[40px] icon-style text-cyan-400 facebook'><FontAwesomeIcon icon={faFacebook} size="2x" /></div>
                         <div onClick={signinGithub} className='w-[40px] h-[40px] icon-style text-dark github'><FontAwesomeIcon icon={faGithub}size="2x" /></div>
