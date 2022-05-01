@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import './Baner.css'
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-import banerImg from '../../Images/cover_1440_1200.jpeg'
+import banerImg from '../../Images/banner10.jpg'
 import banerImg2 from '../../Images/banner2.jpg'
 import banerImg3 from '../../Images/banner3.jpg'
 const Baner = () => {
