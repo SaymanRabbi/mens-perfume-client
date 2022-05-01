@@ -4,12 +4,14 @@ import auth from '../../firebase.init'
 import { useSignInWithEmailAndPassword,useSendPasswordResetEmail} from 'react-firebase-hooks/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Useicon from '../Useicon/Useicon';
 //   import { faCoffee } from '@fortawesome'
 const Login = () => {
+    let location = useLocation();
     const navigate = useNavigate()
+    let from = location.state?.from?.pathname || "/";
     //showpass;
     const [showpass, setShowpass] = useState(false);
     const [email,setEmail] =useState('')
@@ -23,10 +25,10 @@ const Login = () => {
     //google signin
     useEffect(() => {
         if (user) {
-            navigate('/')
+            navigate(from, { replace: true })
             toast.success('Login Sucessfully', { id: '02' })
         }
-    }, [user,navigate])
+    }, [user,navigate,from])
     //psswordreset
     const [sendPasswordResetEmail,, passerror] = useSendPasswordResetEmail(
         auth
@@ -40,7 +42,11 @@ const Login = () => {
         if (passerror?.message.includes('auth/missing-email')) {
             toast.error('Invelid Email')
         }
-    }, [error?.message,passerror?.message])
+        if (passerror?.message&&!(passerror?.message.includes('auth/missing-email'))) {
+            toast.success('SucessFully Send')
+        }
+}, [error?.message, passerror?.message])
+    
 
     const handelsubmit = (event) => {
         event.preventDefault()
@@ -51,8 +57,8 @@ const Login = () => {
     }
     //reset pass
     const resetPass = () => {
+        sendPasswordResetEmail(email);
         
-        sendPasswordResetEmail(email)
     }
     return (
         <div>

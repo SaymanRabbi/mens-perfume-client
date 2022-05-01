@@ -12,6 +12,7 @@ import Register from './Components/Login/Register';
 import ManagesItem from './Components/ManagesItem/ManagesItem';
 import Myitem from './Components/Myitem/Myitem';
 import AddItem from './Components/AddItem/AddItem';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -20,12 +21,20 @@ function App() {
       <ToastContainer></ToastContainer>
       <Routes>
       
-      <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/product' element={<Products></Products>}></Route>
+        
+        <Route path='/' element={<RequireAuth>
+          <Home></Home>
+        </RequireAuth>}></Route>
+      
+        
+        <Route path='/product' element={<RequireAuth><Products></Products>  </RequireAuth>}></Route>
+      
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path ='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        
         <Route path='/managesitem' element={<ManagesItem></ManagesItem>}></Route>
+       
         <Route path='/myitem' element={<Myitem></Myitem>}></Route>
         <Route path='/addItem' element={<AddItem></AddItem>}></Route>
       </Routes>
