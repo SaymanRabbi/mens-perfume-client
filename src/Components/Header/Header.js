@@ -29,39 +29,39 @@ const Header = () => {
                   <div className="ml-10 flex items-baseline space-x-4">
                     <Link
                       to='/'
-                      className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className=" hover:bg-gray-700 text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       Home
                     </Link>
   
                     <Link
                       to='/product'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       Product
                     </Link>
   
                     <Link
                       to='/blog'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       Blog
                     </Link>
                     {user&& <> <Link
                       to='/managesitem'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       Manages Item
                     </Link>
                     <Link
                       to='/myitem'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       My Item
                       </Link>
                       <Link
                       to='/addItem'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       Add Item
                     </Link>
@@ -75,14 +75,14 @@ const Header = () => {
                     user ?<div className='flex'> <Link
                       to='/login'
                      onClick={logout}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-sm font-medium cursor-pointer"
                   >
                     logout
                     </Link >
-                      <p className="text-blue-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">{user?.displayName}</p>
+                      <p className="text-blue-700 uppercase hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-sm font-medium cursor-pointer">{user?.displayName}</p>
                     </div> : <Link
                     to='/login'
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                   >
                     login
                   </Link>
@@ -148,42 +148,42 @@ const Header = () => {
           >
             {(ref) => (
               <div className="md:hidden" id="mobile-menu">
-                <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-1">
                   <Link
                    to='/'
-                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                    className="hover:bg-gray-700 text-white block px-1 py-2 rounded-md text-base font-medium"
                   >
                     Home
                   </Link>
   
                   <Link
                     to='/product'
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-1 py-2 rounded-md text-base font-medium"
                   >
                      Product
                   </Link>
   
                   <Link
                     to='/blog'
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-1 py-2 rounded-md text-base font-medium"
                   >
                    Blog
                   </Link>
                   {user&& <div> <Link
                       to='/managesitem'
-                      className="text-gray-300 block hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 block hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       Manages Item
                     </Link>
                     <Link
                       to='/myitem'
-                      className="text-gray-300 block hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 block hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       My Item
                       </Link>
                       <Link
                       to='/addItem'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                     >
                       Add Item
                     </Link>
