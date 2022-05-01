@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const UpdatedProduct = () => {
+    const incressvalue = useRef(0)
     const { id } = useParams()
-    
     const [product, setProduct] = useState({})
-    
     useEffect(() => {
         fetch(`http://localhost:5000/product/${id}`).then(res=>res.json()).then(data=>setProduct(data))
     },[id,product])
@@ -23,7 +22,21 @@ const UpdatedProduct = () => {
   .then((data) => {
     setProduct(data)
   })
+        
     }
+// incress product
+    const incressProduct = () => {
+        const newvalue = parseInt(quantity) + parseInt(incressvalue.current.value);
+        if (newvalue) {
+            fetch(`http://localhost:5000/product/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify({quantity :newvalue}),})
+        .then((res) => res.json())
+        .then((data) => {
+          setProduct(data)
+        })
+            }  }
     return (
         <div className='w-2/4 mx-auto my-10 bg-gray-200 antialiased text-gray-900 rounded py-5' style={{minHeight:'100vh'}}>
             <div>
@@ -52,7 +65,12 @@ const UpdatedProduct = () => {
                             <span className="text-teal-600 text-md font-semibold"> {Suplier}</span>
     
                         </div>  
-                        <button disabled={parseInt(quantity)===0&&true} onClick={deliveryproduct} className='bg-teal-600 text-white py-2 px-3 rounded'>Delivery</button>
+                        <button disabled={parseInt(quantity) <= 0 && true} onClick={deliveryproduct} className='bg-teal-600 text-white py-2 px-3 rounded'>Delivery</button>
+                        <div className='mt-3'>
+                            <input  type="number" ref={incressvalue} className='w-1/4 h-9 mb-2 rounded' style={{ border: '2px solid black' }} />
+                            <br />
+                            <button   onClick={incressProduct} className='bg-teal-600 text-white py-2 px-3 rounded'>Incress Quentity</button>
+                        </div>
                        
   </div>
  </div>
