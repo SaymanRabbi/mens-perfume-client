@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Transition } from "@headlessui/react";
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import {signOut } from 'firebase/auth';
 
 const Header = () => {
   const [user,] = useAuthState(auth);
+  console.log(user?.displayName)
   const logout = () => {
     signOut(auth);
   };
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
     return (
         <div>
         <nav className="bg-gray-800">
@@ -71,12 +72,15 @@ const Header = () => {
                 </div>
                 <div className='d-block ml-auto'>
                   {
-                    user?<Link
-                    to='/login' onClick={logout}
+                    user ?<div className='flex'> <Link
+                      to='/login'
+                     onClick={logout}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
                   >
                     logout
-                  </Link>:<Link
+                    </Link >
+                      <p className="text-blue-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">{user?.displayName}</p>
+                    </div> : <Link
                     to='/login'
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >

@@ -11,7 +11,7 @@ import './Baner.css'
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 import banerImg from '../../Images/cover_1440_1200.jpeg'
-import banerImg2 from '../../Images/baner2.jpg'
+import banerImg2 from '../../Images/baner2.jpeg'
 import banerImg3 from '../../Images/TOP_BANNER_LP_THE_SCENT_PARFUM_blackbackground3.png'
 const Baner = () => {
     return (
@@ -30,14 +30,14 @@ const Baner = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-                <SwiperSlide className='w-3/4 mx-auto'>
+                <SwiperSlide className='swiper-slide'>
                     <img src={banerImg} alt="" style={{maxWidth:'102%'}}/>
           </SwiperSlide>
-          <SwiperSlide>
-          <img src={banerImg2} alt="" className='w-full'/>
+          <SwiperSlide className='swiper-slide'>
+          <img src={banerImg2} alt="" className='w-full swiper-slide'/>
           </SwiperSlide>
-          <SwiperSlide>
-          <img src={banerImg3} alt="" className='w-full'/>
+          <SwiperSlide className='swiper-slide'>
+          <img src={banerImg3} alt="" className='w-full '/>
           </SwiperSlide>
           
         </Swiper>

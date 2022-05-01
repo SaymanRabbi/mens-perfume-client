@@ -45,3 +45,13 @@ border-bottom: 3px solid blue;
 .github{
     border: 2px solid #000000;
 }
+.showpass-container{
+    position: relative;
+}
+.showpass-child{
+    position: absolute;
+    top: 20px;
+    right: 2px;
+    cursor: pointer;
+   
+}
