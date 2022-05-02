@@ -34,12 +34,7 @@ const Header = () => {
                       Home
                     </Link>
   
-                    <Link
-                      to='/product'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
-                    >
-                      Product
-                    </Link>
+                    
   
                     <Link
                       to='/blog'
@@ -156,12 +151,7 @@ const Header = () => {
                     Home
                   </Link>
   
-                  <Link
-                    to='/product'
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-1 py-2 rounded-md text-base font-medium"
-                  >
-                     Product
-                  </Link>
+                  
   
                   <Link
                     to='/blog'
