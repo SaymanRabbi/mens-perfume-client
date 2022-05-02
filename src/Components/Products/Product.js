@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   const { picture, name, price, Suplier, discription, quantity } = product;
-  console.log(quantity)
+  console.log(product)
     return (
         <div className=" bg-gray-200 antialiased text-gray-900 rounded py-5">
 <div>

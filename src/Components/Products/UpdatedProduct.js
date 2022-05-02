@@ -42,13 +42,13 @@ const UpdatedProduct = () => {
     }
   }
   useEffect(() =>{
-    if (quantity <= 0) {
+    if (quantity <0) {
       toast.error('Out Of Stouck',{id:'out'})
     }
   },[quantity])
   
     return (
-        <div className='w-2/4 mx-auto my-10 bg-gray-200 antialiased text-gray-900 rounded py-5' style={{minHeight:'100vh'}}>
+        <div className='md:w-2/4 w-3/4 mx-auto my-10 bg-gray-200 antialiased text-gray-900 rounded py-5' style={{minHeight:'100vh'}}>
             <div>
     
     <img src={picture} alt=" random imgee" className="object-cover w-full  object-center rounded-lg shadow-md "/>    
@@ -76,7 +76,7 @@ const UpdatedProduct = () => {
       <br />
                 <button onClick={incressProduct} className='bg-teal-600 text-white py-2 px-3 rounded'>Incress Quentity</button>
                 <Link to='/managesitem'>
-                <button  className='ml-4 bg-slate-900 text-white py-2 px-3 rounded'>Manages Inventory</button>
+                <button  className=' md:ml-3 mt-2 bg-slate-900 text-white py-2 px-3 rounded'>Manages Inventory</button>
                 </Link>
   </div></div>
  </div>

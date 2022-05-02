@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Product from './Product';
 const Products = () => {
     const [products, setProducts] = useState([])
-    console.log(products)
+ 
     useEffect(() => {
         fetch('http://localhost:5000/product').then(res=>res.json()).then(data=>setProducts(data))
     },[])

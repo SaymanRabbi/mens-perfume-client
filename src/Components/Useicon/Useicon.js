@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSignInWithGoogle,useSignInWithGithub, useSignInWithFacebook} from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle,useSignInWithGithub, useSignInWithFacebook, useAuthState} from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 const Useicon = () => {
+    const [user] = useAuthState(auth);
+    console.log(user)
     const navigate = useNavigate()
     const [signInWithGoogle, Gooleuser] = useSignInWithGoogle(auth);
     // githubsignin
+    console.log(Gooleuser)
     const [signInWithGithub, Githubuser] = useSignInWithGithub(auth);
     //facebooksignin
     const [signInWithFacebook, Facebookuser] = useSignInWithFacebook(auth);

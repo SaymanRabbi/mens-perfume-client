@@ -1,0 +1,16 @@
+.minheights{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input{
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 40px;
+    margin-bottom: 15px;
+}
+.input:focus{
+    outline: none;
+}

@@ -6,7 +6,7 @@ import Emailverifiction from '../Emailverifiction/Emailverifiction';
 import Spiner from '../Spiner/Spiner';
 const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth)
-    console.log(user)
+ 
     const location = useLocation()
     if (loading) {
         return <Spiner></Spiner>;

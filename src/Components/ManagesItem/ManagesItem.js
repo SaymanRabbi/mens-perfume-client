@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 const ManagesItem = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -41,7 +42,7 @@ const ManagesItem = () => {
         <div className="table w-full p-2">
         <table className="w-full border">
             <thead>
-                <tr className="bg-gray-50 border-b">
+                <tr className="bg-gray-50 border">
                     <th className="border-r p-2 text-left">
                        Name
                     </th>
@@ -63,12 +64,12 @@ const ManagesItem = () => {
             </thead>
             <tbody>
                         {
-                            products.map((data, index) => <tr key={index} className='p-2 border-r'>
-                                <td className='text-white'>{data?.name}</td>
-                                <td className='text-white'>{data?.price}</td>
-                                <td className='text-white'>{data?.Suplier}</td>
-                                <td className='text-white'>{data?.quantity}</td>
-                                <td className='text-white'><FontAwesomeIcon onClick={()=>deleteProduct(data._id)} icon={faTrash} className='text-red-600 cursor-pointer' style={{width:'21px',height:'21px'}}></FontAwesomeIcon></td>
+                            products.map((data, index) => <tr key={index}    style={{border:'1px solid white'}}>
+                                <td className='text-white py-3 border-r-2'>{data?.name}</td>
+                                <td className='text-white border-r-2'>{data?.price}</td>
+                                <td className='text-white border-r-2'>{data?.Suplier}</td>
+                                <td className='text-white border-r-2'>{data?.quantity}</td>
+                                <td className='text-white '><FontAwesomeIcon onClick={()=>deleteProduct(data._id)} icon={faTrash} className='text-red-600 cursor-pointer' style={{width:'21px',height:'21px'}}></FontAwesomeIcon></td>
                                 
                             </tr>
                             )
@@ -76,7 +77,11 @@ const ManagesItem = () => {
             </tbody>
         </table>
     </div>
-            
+            <div className='text-center mt-3'>
+                <Link to='/addItem'>
+                <button className='bg-white text-black px-3 py-2 font-semibold rounded'>Add New item</button>
+                </Link>
+           </div>
         </div>
     );
 };
