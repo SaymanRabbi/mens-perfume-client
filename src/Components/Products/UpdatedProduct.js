@@ -57,7 +57,7 @@ const UpdatedProduct = () => {
    <div className="bg-white p-6 rounded-lg shadow-lg">
     <div className="flex items-baseline">
       <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
-        {quantity<=0 ? 'Out Of Stouck':'New'}
+        {quantity<=0 ? 'Out Of Stouck':'available'}
       </span>
       <div className="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
     Quentity: {quantity}

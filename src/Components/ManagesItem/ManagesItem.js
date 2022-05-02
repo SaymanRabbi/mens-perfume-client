@@ -1,18 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2'
 const ManagesItem = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/product?location=manages`).then(res => res.json()).then(data=>setProducts(data))
     }, [])
-    const deleteProduct = (id)=>{
-        fetch(`http://localhost:5000/product/${id}`, {
-            method:'DELETE'
-        }).then(res => res.json()).then(data => {
-            const rest = products.filter(pd => pd._id !== id);
-            setProducts(rest)
-        })
+    const deleteProduct = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                fetch(`http://localhost:5000/product/${id}`, {
+                method:'DELETE'
+            }).then(res => res.json()).then(data => {
+                const rest = products.filter(pd => pd._id !== id);
+                setProducts(rest)
+            })
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+       
+        
     }
     return (
         <div className='px-10'>

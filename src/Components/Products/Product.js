@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   const { picture, name, price, Suplier, discription, quantity } = product;
+  console.log(quantity)
     return (
         <div className=" bg-gray-200 antialiased text-gray-900 rounded py-5">
 <div>
@@ -11,7 +12,7 @@ const Product = ({ product }) => {
    <div className="bg-white p-6 rounded-lg shadow-lg">
     <div className="flex items-baseline">
       <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
-        New
+        {quantity===0 ? 'Stouck Out':'available'}
       </span>
       <div className="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
     Quentity: {quantity}
