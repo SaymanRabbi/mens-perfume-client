@@ -14,6 +14,7 @@ import Myitem from './Components/Myitem/Myitem';
 import AddItem from './Components/AddItem/AddItem';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import UpdatedProduct from './Components/Products/UpdatedProduct';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
       <Routes>
       
         
-        <Route path='/' element={<RequireAuth>
+        <Route path='/' element={
           <Home></Home>
-        </RequireAuth>}></Route>
+        }></Route>
       
         
         <Route path='/product' element={<RequireAuth><Products></Products>  </RequireAuth>}></Route>
@@ -34,14 +35,21 @@ function App() {
         <Route path ='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         
-        <Route path='/managesitem' element={<ManagesItem></ManagesItem>}></Route>
+        <Route path='/managesitem' element={<RequireAuth>
+          <ManagesItem></ManagesItem>
+        </RequireAuth>}></Route>
        
-        <Route path='/myitem' element={<Myitem></Myitem>}></Route>
-        <Route path='/addItem' element={<AddItem></AddItem>}></Route>
+        <Route path='/myitem' element={<RequireAuth>
+          <Myitem></Myitem>
+        </RequireAuth>}></Route>
+        <Route path='/addItem' element={<RequireAuth>
+          <AddItem></AddItem>
+        </RequireAuth>}></Route>
         <Route path='/updatepd/:id' element={<RequireAuth>
           <UpdatedProduct></UpdatedProduct>
         </RequireAuth>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

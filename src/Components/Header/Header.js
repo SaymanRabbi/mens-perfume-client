@@ -32,15 +32,6 @@ const Header = () => {
                     >
                       Home
                     </Link>
-  
-                    
-  
-                    <Link
-                      to='/blog'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
-                    >
-                      Blog
-                    </Link>
                     {user&& <> <Link
                       to='/managesitem'
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
@@ -61,7 +52,12 @@ const Header = () => {
                     </Link>
                     </>
                     }
-
+                     <Link
+                      to='/blog'
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                    >
+                      Blog
+                    </Link>
                   </div>
                 </div>
                 <div className='d-block ml-auto'>
@@ -150,14 +146,6 @@ const Header = () => {
                     Home
                   </Link>
   
-                  
-  
-                  <Link
-                    to='/blog'
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-1 py-2 rounded-md text-base font-medium"
-                  >
-                   Blog
-                  </Link>
                   {user&& <div> <Link
                       to='/managesitem'
                       className="text-gray-300 block hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
@@ -177,7 +165,13 @@ const Header = () => {
                       Add Item
                     </Link>
                     </div>
-                    }
+                  }
+                  <Link
+                    to='/blog'
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-1 py-2 rounded-md text-base font-medium"
+                  >
+                   Blog
+                  </Link>
                  
                 </div>
               </div>

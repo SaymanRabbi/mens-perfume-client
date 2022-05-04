@@ -92,7 +92,7 @@ const Register = () => {
     //reset pass
    
     return (
-        <div>
+        <div style={{minHeight:'100vh'}}>
             <div className='login-form'>
                 <form onSubmit={ handelSignup} className='w-3/4 md:w-2/4 mt-5 mb-5 md:px-20 px-3 py-5 shadow-md bg-white rounded'>
                     <h2 className='text-center mb-10'><span className='text-3xl login-title'>Register</span></h2>

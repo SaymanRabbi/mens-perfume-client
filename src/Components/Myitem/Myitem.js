@@ -11,7 +11,7 @@ const Myitem = () => {
         fetch(`http://localhost:5000/myitem?result=${user?.email}`).then(res=>res.json()).then(data=>setItems(data))
     },[user])
     return (
-        <div className='mt-5 grid md:grid-cols-3 gap-10 container mx-auto'>
+        <div className='mt-5 grid md:grid-cols-3 gap-10 container mx-auto'style={{minHeight:'100vh'}}>
             {
                 items.map(pd=><Product product={pd} key={pd._id}></Product>)
            }

@@ -20,7 +20,7 @@ const AddItem = () => {
     };
   
     return (
-        <div className='minheights px-3'>
+        <div className='minheights px-3' style={{minHeight:'100vh'}}>
             <form onSubmit={handleSubmit(onSubmit)} className='w-full md:w-2/4 mx-auto mt-6 rounded bg-white px-10 py-5'>
             
             <div>
