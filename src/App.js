@@ -15,6 +15,7 @@ import AddItem from './Components/AddItem/AddItem';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import UpdatedProduct from './Components/Products/UpdatedProduct';
 import Footer from './Components/Footer/Footer';
+import NotFound from './Components/NotFound/NotFound';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path='/updatepd/:id' element={<RequireAuth>
           <UpdatedProduct></UpdatedProduct>
         </RequireAuth>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

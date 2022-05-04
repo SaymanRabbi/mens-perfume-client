@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import './Additem.css'
 import auth from '../../firebase.init'
 import { useNavigate } from "react-router-dom";
+import PageTittle from "../PageTittle/PageTittle";
 const AddItem = () => {
     const navigate =useNavigate()
     const [user] = useAuthState(auth);
@@ -20,7 +21,8 @@ const AddItem = () => {
     };
   
     return (
-        <div className='minheights px-3' style={{minHeight:'100vh'}}>
+        <div className='minheights px-3' style={{ minHeight: '100vh' }}>
+            <PageTittle location="Men's Perfume AddItem"></PageTittle>
             <form onSubmit={handleSubmit(onSubmit)} className='w-full md:w-2/4 mx-auto mt-6 rounded bg-white px-10 py-5'>
             
             <div>

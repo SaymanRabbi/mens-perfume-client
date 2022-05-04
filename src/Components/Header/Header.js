@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Transition } from "@headlessui/react";
-import { Link} from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import {signOut } from 'firebase/auth';
-
 const Header = () => {
   const [user,] = useAuthState(auth);
   const logout = () => {
@@ -26,38 +25,39 @@ const Header = () => {
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    <Link
+                    <NavLink
+                      // className={({isActive})=>isActive?"active-link":"link"}
                       to='/'
-                      className=" hover:bg-gray-700 text-white px-1 py-2 rounded-md text-sm font-medium"
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                     >
                       Home
-                    </Link>
-                    {user&& <> <Link
+                    </NavLink>
+                    {user&& <> <NavLink
                       to='/managesitem'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                     >
                       Manages Item
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                       to='/myitem'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                     >
                       My Item
-                      </Link>
-                      <Link
+                      </NavLink>
+                      <NavLink
                       to='/addItem'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                     >
                       Add Item
-                    </Link>
+                    </NavLink>
                     </>
                     }
-                     <Link
+                     <NavLink
                       to='/blog'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                     >
                       Blog
-                    </Link>
+                    </NavLink>
                   </div>
                 </div>
                 <div className='d-block ml-auto'>
@@ -139,39 +139,39 @@ const Header = () => {
             {(ref) => (
               <div className="md:hidden" id="mobile-menu">
                 <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-1">
-                  <Link
+                  <NavLink
                    to='/'
-                    className="hover:bg-gray-700 text-white block px-1 py-2 rounded-md text-base font-medium"
+                   className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                   >
                     Home
-                  </Link>
+                  </NavLink>
   
-                  {user&& <div> <Link
+                  {user&& <div> <NavLink
                       to='/managesitem'
-                      className="text-gray-300 block hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                     >
                       Manages Item
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                       to='/myitem'
-                      className="text-gray-300 block hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                     >
                       My Item
-                      </Link>
-                      <Link
+                      </NavLink>
+                      <NavLink
                       to='/addItem'
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                     >
                       Add Item
-                    </Link>
+                    </NavLink>
                     </div>
                   }
-                  <Link
+                  <NavLink
                     to='/blog'
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-1 py-2 rounded-md text-base font-medium"
+                    className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
                   >
                    Blog
-                  </Link>
+                  </NavLink>
                  
                 </div>
               </div>

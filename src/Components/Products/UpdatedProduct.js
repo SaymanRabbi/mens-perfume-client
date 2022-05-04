@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import PageTittle from '../PageTittle/PageTittle';
 const UpdatedProduct = () => {
     const incressvalue = useRef(0)
     const { id } = useParams()
@@ -8,10 +9,11 @@ const UpdatedProduct = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/product/${id}`).then(res=>res.json()).then(data=>setProduct(data))
     },[id,product])
-    const { picture, name, price, Suplier, discription, quantity } = product;
+  const { picture, name, price, Suplier, discription, quantity } = product;
+  const parseQuentity = parseInt(quantity) || 0
  //delevery product
     const deliveryproduct = () => {
-        const newRest = parseInt(quantity) - 1;
+        const newRest = parseQuentity - 1;
         // setRest(newRest);
       if (quantity > 0) {
         fetch(`http://localhost:5000/product/${id}`, {
@@ -28,7 +30,8 @@ const UpdatedProduct = () => {
          }
 // incress product
     const incressProduct = () => {
-        const newvalue = parseInt(quantity) + parseInt(incressvalue.current.value);
+      const newvalue = parseQuentity + parseInt(incressvalue.current.value);
+      console.log(parseQuentity)
         if (newvalue) {
             fetch(`http://localhost:5000/product/${id}`, {
                 method: 'PUT',
@@ -48,12 +51,12 @@ const UpdatedProduct = () => {
   },[quantity])
   
     return (
-        <div className='md:w-2/4 w-3/4 mx-auto my-10 bg-gray-200 antialiased text-gray-900 rounded py-5' style={{minHeight:'100vh'}}>
+        <div className='md:w-2/4 w-3/4  mx-auto my-10 bg-gray-200 antialiased text-gray-900 rounded py-5' style={{minHeight:'100vh'}}>
             <div>
-    
+            <PageTittle location="Men's Perfume Updated Product"></PageTittle>
     <img src={picture} alt=" random imgee" className="object-cover w-full  object-center rounded-lg shadow-md "/>    
     
- <div className="relative px-4 -mt-16  ">
+ <div className="relative px-4 -mt-16 ">
    <div className="bg-white p-6 rounded-lg shadow-lg">
     <div className="flex items-baseline">
       <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">

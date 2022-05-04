@@ -2,22 +2,23 @@ import React, { useEffect } from 'react';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSignInWithGoogle,useSignInWithGithub, useSignInWithFacebook} from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 const Useicon = () => {
-    
     const navigate = useNavigate()
+    const location =useLocation()
     const [signInWithGoogle, Googleuser] = useSignInWithGoogle(auth);
     const [signInWithGithub, Githubuser] = useSignInWithGithub(auth);
     //facebooksignin
     const [signInWithFacebook, Facebookuser] = useSignInWithFacebook(auth);
+    let from = location.state?.from?.pathname || "/";
     useEffect(() => {
         if (Googleuser || Githubuser || Facebookuser) {
-            navigate('/')
+            navigate(from, { replace: true })
             toast.success('Login Sucessfully', { id: '02' })
         }
-    }, [navigate, Googleuser, Githubuser, Facebookuser])
+    }, [navigate, Googleuser, Githubuser, Facebookuser,from])
     //GoogleSign in
     const signinGoogle = () => {
         signInWithGoogle();

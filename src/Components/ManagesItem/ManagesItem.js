@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
+import PageTittle from '../PageTittle/PageTittle';
 const ManagesItem = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -36,7 +37,8 @@ const ManagesItem = () => {
         
     }
     return (
-        <div className='px-10' style={{minHeight:'100vh'}}>
+        <div className='px-10' style={{ minHeight: '100vh' }}>
+            <PageTittle location="Men's Perfume ManagesItem"></PageTittle>
             <h1 className='text-center text-3xl font-bold mt-5 mb-4 text-white'>Manages Inventory</h1>
           
         <div className="table w-full p-2">
