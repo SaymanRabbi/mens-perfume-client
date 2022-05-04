@@ -5,9 +5,9 @@ const Product = ({ product }) => {
   const { picture, name, price, Suplier, discription, quantity } = product;
   console.log(product)
     return (
-        <div className=" bg-gray-200 antialiased text-gray-900 rounded py-5">
+        <div className=" bg-gray-200 antialiased text-gray-900  pb-5" style={{height:'650px',borderRadius:'8px'}}>
 <div>
-    <img src={picture} alt=" random imgee" className="object-cover w-full  object-center rounded-lg shadow-md "/>    
+    <img src={picture} alt=" random imgee" className="object-cover w-full  object-center rounded-lg shadow-md "style={{height:'390px'}}/>    
     <div className="relative px-4 -mt-16  ">
    <div className="bg-white p-6 rounded-lg shadow-lg">
     <div className="flex items-baseline">

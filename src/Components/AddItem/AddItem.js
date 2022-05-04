@@ -2,7 +2,9 @@ import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './Additem.css'
 import auth from '../../firebase.init'
+import { useNavigate } from "react-router-dom";
 const AddItem = () => {
+    const navigate =useNavigate()
     const [user] = useAuthState(auth);
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
@@ -14,6 +16,7 @@ const AddItem = () => {
             body:JSON.stringify(data)
         }).then(res => res.json()).then(data => console.log(data))
         reset()
+        navigate('/managesitem')
     };
   
     return (
@@ -46,7 +49,7 @@ const AddItem = () => {
        
         
                 <div className="text-center">
-                <input className='px-4 py-2 bg-black rounded text-white' type="submit" value='Submit' />
+                <input className='px-4 py-2 bg-black rounded text-white' type="submit" value='Add Item' />
        </div>
       </form>
             </div>
