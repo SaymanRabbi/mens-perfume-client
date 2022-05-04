@@ -8,7 +8,7 @@ const ManagesItem = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         fetch(`https://assignment-11-server.herokuapp.com/product?location=manages`).then(res => res.json()).then(data=>setProducts(data))
-    }, [])
+    }, [products])
     const deleteProduct = (id) => {
         Swal.fire({
             title: 'Are you sure?',

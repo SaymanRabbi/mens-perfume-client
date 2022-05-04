@@ -22,7 +22,7 @@ const Product = ({ product }) => {
     Price: {price}
   </div>
   <div className="mt-4 mb-2">
-  <h5>{(discription).slice(0,100)}</h5>
+  <h5>{(discription)?.slice(0,100)}</h5>
   <span className="text-teal-600 text-md font-semibold"> {Suplier}</span>
     </div>  
   <Link to={`/updatepd/${product._id}`}> <button className='bg-teal-600 text-white py-2 px-3 rounded'>Update</button></Link>
