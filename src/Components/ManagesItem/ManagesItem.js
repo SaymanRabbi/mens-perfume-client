@@ -71,7 +71,9 @@ const ManagesItem = () => {
                                 <td className='text-white border-r-2'>{data?.price}</td>
                                 <td className='text-white border-r-2'>{data?.Suplier}</td>
                                 <td className='text-white border-r-2'>{data?.quantity}</td>
-                                <td className='text-white '><FontAwesomeIcon onClick={()=>deleteProduct(data._id)} icon={faTrash} className='text-red-600 cursor-pointer' style={{width:'21px',height:'21px'}}></FontAwesomeIcon></td>
+                                <td className='text-white flex justify-center mt-2 items-center'>
+                                    <button className='mr-3 px-2 py-1 text-black rounded bg-white'>Update</button>
+                                    <FontAwesomeIcon onClick={() => deleteProduct(data._id)} icon={faTrash} className='text-red-600 cursor-pointer' style={{ width: '25px', height: '25px' }}></FontAwesomeIcon></td>
                                 
                             </tr>
                             )

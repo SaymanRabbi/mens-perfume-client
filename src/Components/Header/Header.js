@@ -3,7 +3,8 @@ import { Transition } from "@headlessui/react";
 import { Link, NavLink} from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import {signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
+import logo from '../../Images/logo.png'
 const Header = () => {
   const [user,] = useAuthState(auth);
   const logout = () => {
@@ -19,8 +20,8 @@ const Header = () => {
                 <div className="flex-shrink-0">
                   <img
                     className="h-8 w-8"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
+                    src={logo}
+                    alt="Men's Perfume"
                   />
                 </div>
                 <div className="hidden md:block">
