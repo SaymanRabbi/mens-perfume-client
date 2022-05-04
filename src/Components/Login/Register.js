@@ -85,7 +85,7 @@ const Register = () => {
            await createUserWithEmailAndPassword(email.value, password.value)
             await updateProfile({ displayName: name.value });
             const value = email.value
-            const { data } = await axios.post('http://localhost:5000/token', {value})
+            const { data } = await axios.post('https://assignment-11-server.herokuapp.com/token', {value})
              localStorage.setItem('token',data.createToken)
            
           }

@@ -7,7 +7,7 @@ import PageTittle from '../PageTittle/PageTittle';
 const ManagesItem = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/product?location=manages`).then(res => res.json()).then(data=>setProducts(data))
+        fetch(`https://assignment-11-server.herokuapp.com/product?location=manages`).then(res => res.json()).then(data=>setProducts(data))
     }, [])
     const deleteProduct = (id) => {
         Swal.fire({
@@ -20,7 +20,7 @@ const ManagesItem = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
               if (result.isConfirmed) {
-                fetch(`http://localhost:5000/product/${id}`, {
+                fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
                 method:'DELETE'
             }).then(res => res.json()).then(data => {
                 const rest = products.filter(pd => pd._id !== id);

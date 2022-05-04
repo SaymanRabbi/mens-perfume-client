@@ -7,7 +7,7 @@ const UpdatedProduct = () => {
     const { id } = useParams()
     const [product, setProduct] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`).then(res=>res.json()).then(data=>setProduct(data))
+        fetch(`https://assignment-11-server.herokuapp.com/product/${id}`).then(res=>res.json()).then(data=>setProduct(data))
     },[id,product])
   const { picture, name, price, Suplier, discription, quantity } = product;
   const parseQuentity = parseInt(quantity) || 0
@@ -16,7 +16,7 @@ const UpdatedProduct = () => {
         const newRest = parseQuentity - 1;
         // setRest(newRest);
       if (quantity > 0) {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({quantity :newRest}),
@@ -33,7 +33,7 @@ const UpdatedProduct = () => {
       const newvalue = parseQuentity + parseInt(incressvalue.current.value);
       console.log(parseQuentity)
         if (newvalue) {
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                body: JSON.stringify({quantity :newvalue}),})

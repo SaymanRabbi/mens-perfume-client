@@ -10,7 +10,7 @@ const Myitem = () => {
     console.log(user)
     useEffect(() => {
         const getorders = async () => {
-            const { data } = await axios.get(`http://localhost:5000/myitem?result=${user?.email}`, {
+            const { data } = await axios.get(`https://assignment-11-server.herokuapp.com/myitem?result=${user?.email}`, {
                 headers:{
                 authorization:`Barere ${localStorage.getItem('token')}`
                 }
