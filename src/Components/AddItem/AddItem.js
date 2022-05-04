@@ -21,9 +21,9 @@ const AddItem = () => {
     };
   
     return (
-        <div className='minheights px-3' style={{ minHeight: '100vh' }}>
-            <PageTittle location="Men's Perfume AddItem"></PageTittle>
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full md:w-2/4 mx-auto mt-6 rounded bg-white px-10 py-5'>
+        <div className='minheights' style={{ minHeight: '100vh' }}>
+            <PageTittle location="Men's Perfume - AddItem"></PageTittle>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full h-3/4  md:w-2/4 mx-auto  rounded bg-white px-10 py-5'>
             
             <div>
             <input  className='w-full h-8 input' placeholder='Item Name' {...register("name")} required/>
@@ -51,7 +51,7 @@ const AddItem = () => {
        
         
                 <div className="text-center">
-                <input className='px-4 py-2 bg-black rounded text-white' type="submit" value='Add Item' />
+                <input className='px-4 py-2 mt-3 bg-black rounded text-white' type="submit" value='Add Item' />
        </div>
       </form>
             </div>

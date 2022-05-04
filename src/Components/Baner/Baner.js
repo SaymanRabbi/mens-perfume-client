@@ -31,7 +31,7 @@ const Baner = () => {
           className="mySwiper"
         >
                 <SwiperSlide className='swiper-slide'>
-                    <img src={banerImg} alt="" style={{maxWidth:'102%'}}/>
+                    <img src={banerImg} alt=""/>
           </SwiperSlide>
           <SwiperSlide className='swiper-slide'>
           <img src={banerImg2} alt="" className='w-full swiper-slide'/>

@@ -18,11 +18,13 @@ const Header = () => {
             <div className="flex items-center justify-between h-20">
               <div className="flex items-center w-full">
                 <div className="flex-shrink-0">
+                  <Link to='/'>
                   <img
                     className="h-8 w-8"
                     src={logo}
                     alt="Men's Perfume"
                   />
+                  </Link>
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
@@ -73,7 +75,7 @@ const Header = () => {
                       <p className="text-blue-700 uppercase hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-sm font-medium cursor-pointer">{user?.displayName}</p>
                     </div> : <Link
                     to='/login'
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 mr-2 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"
                   >
                     login
                   </Link>
@@ -149,19 +151,19 @@ const Header = () => {
   
                   {user&& <div> <NavLink
                       to='/managesitem'
-                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700 block":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium block"}
                     >
                       Manages Item
                     </NavLink>
                     <NavLink
                       to='/myitem'
-                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700 block":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium block"}
                     >
                       My Item
                       </NavLink>
                       <NavLink
                       to='/addItem'
-                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
+                      className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700 block":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium block"}
                     >
                       Add Item
                     </NavLink>
@@ -169,7 +171,7 @@ const Header = () => {
                   }
                   <NavLink
                     to='/blog'
-                    className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium"}
+                    className={({isActive})=>isActive?" hover:bg-gray-700  px-1 py-2 hover:rounded-md text-sm font-bold text-blue-700 block":"text-gray-300 hover:bg-gray-700 hover:text-white px-1 py-2 rounded-md text-sm font-medium block"}
                   >
                    Blog
                   </NavLink>

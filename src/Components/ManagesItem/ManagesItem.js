@@ -38,7 +38,7 @@ const ManagesItem = () => {
     }
     return (
         <div className='px-10' style={{ minHeight: '100vh' }}>
-            <PageTittle location="Men's Perfume ManagesItem"></PageTittle>
+            <PageTittle location="Men's Perfume - ManagesItem"></PageTittle>
             <h1 className='text-center text-3xl font-bold mt-5 mb-4 text-white'>Manages Inventory</h1>
           
         <div className="table w-full p-2">
@@ -72,7 +72,10 @@ const ManagesItem = () => {
                                 <td className='text-white border-r-2'>{data?.Suplier}</td>
                                 <td className='text-white border-r-2'>{data?.quantity}</td>
                                 <td className='text-white flex justify-center mt-2 items-center'>
-                                    <button className='mr-3 px-2 py-1 text-black rounded bg-white'>Update</button>
+                                    <Link to={`/updatepd/${data._id}`}>
+                                    
+                                    <button className='mr-3 px-2 py-1 text-black rounded bg-white'>Update</button></Link>
+                                    {/*  */}
                                     <FontAwesomeIcon onClick={() => deleteProduct(data._id)} icon={faTrash} className='text-red-600 cursor-pointer' style={{ width: '25px', height: '25px' }}></FontAwesomeIcon></td>
                                 
                             </tr>

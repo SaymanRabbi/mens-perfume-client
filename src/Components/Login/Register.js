@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 import Useicon from '../Useicon/Useicon';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import PageTittle from '../PageTittle/PageTittle';
+import axios from 'axios';
+import useToken from '../../hooks/useToken';
 //   import { faCoffee } from '@fortawesome'
 const Register = () => {
     const [checked,setChecked]=useState(false)
@@ -19,13 +21,13 @@ const Register = () => {
         
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile] = useUpdateProfile(auth);
-
+    const [token]=useToken(user)
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate('/')
             toast.success('Login Sucessfully', { id: '02' })
         }
-    }, [user,navigate])
+    }, [token,navigate])
     //showpass;
     const [showpass, setShowpass] = useState(false);
     const [name, setName] = useState({
@@ -81,7 +83,10 @@ const Register = () => {
           if (email.value && password.value && name.value) {
               console.log('inside')
            await createUserWithEmailAndPassword(email.value, password.value)
-           await updateProfile({ displayName:name.value });
+            await updateProfile({ displayName: name.value });
+            const value = email.value
+            const { data } = await axios.post('http://localhost:5000/token', {value})
+             localStorage.setItem('token',data.createToken)
            
           }
           else {
@@ -94,7 +99,7 @@ const Register = () => {
    
     return (
         <div style={{minHeight:'100vh'}}>
-          <PageTittle location="Men's Perfume Register"></PageTittle>
+          <PageTittle location="Men's Perfume - Register"></PageTittle>
             <div className='login-form'>
                 <form onSubmit={ handelSignup} className='w-3/4 md:w-2/4 mt-5 mb-5 md:px-20 px-3 py-5 shadow-md bg-white rounded'>
                     <h2 className='text-center mb-10'><span className='text-3xl login-title'>Register</span></h2>

@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Useicon from '../Useicon/Useicon';
 import PageTittle from '../PageTittle/PageTittle';
+import useToken from '../../hooks/useToken';
 //   import { faCoffee } from '@fortawesome'
 const Login = () => {
     let location = useLocation();
@@ -23,13 +24,15 @@ const Login = () => {
         ,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [token] = useToken(user)
+    // console.log(token)
     //google signin
-    useEffect(() => {
-        if (user) {
+    
+        if (token) {
             navigate(from, { replace: true })
             toast.success('Login Sucessfully', { id: '02' })
         }
-    }, [user,navigate,from])
+    
     //psswordreset
     const [sendPasswordResetEmail,, passerror] = useSendPasswordResetEmail(
         auth
@@ -47,13 +50,14 @@ const Login = () => {
           
         }
 }, [error, passerror,emailValue])
-    const handelsubmit = (event) => {
+    const handelsubmit = async(event) => {
         const emails = email.current.value
         
         event.preventDefault()
         const password = event.target.password.value;
         
-        signInWithEmailAndPassword(emails, password)
+        await signInWithEmailAndPassword(emails, password)
+        
         event.target.reset()
     }
     //reset pass
@@ -65,7 +69,7 @@ const Login = () => {
     }
     return (
         <div style={{ minHeight: '100vh' }}>
-            <PageTittle location="Men's Perfume Login"></PageTittle>
+            <PageTittle location="Men's Perfume - Login"></PageTittle>
             <div className='login-form'>
                 <form onSubmit={handelsubmit} className='w-3/4 md:w-2/4 mt-5 mb-5 md:px-20 px-3 py-5 shadow-md bg-white rounded'>
                     <h2 className='text-center mb-10'><span className='text-3xl login-title'>Login</span></h2>

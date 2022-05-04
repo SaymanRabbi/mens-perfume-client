@@ -7,7 +7,7 @@ import './Home.css'
 const Home = () => {
     return (
         <div className='minheight'>
-            <PageTittle location="Men's Perfume Home"></PageTittle>
+            <PageTittle location="Men's Perfume - Home"></PageTittle>
             <Baner></Baner>
              <Products></Products>
         </div>

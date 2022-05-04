@@ -5,6 +5,7 @@ import { useSignInWithGoogle,useSignInWithGithub, useSignInWithFacebook} from 'r
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 const Useicon = () => {
     const navigate = useNavigate()
     const location =useLocation()
@@ -12,13 +13,14 @@ const Useicon = () => {
     const [signInWithGithub, Githubuser] = useSignInWithGithub(auth);
     //facebooksignin
     const [signInWithFacebook, Facebookuser] = useSignInWithFacebook(auth);
+    const [token]=useToken(Googleuser||Githubuser||Facebookuser)
     let from = location.state?.from?.pathname || "/";
     useEffect(() => {
-        if (Googleuser || Githubuser || Facebookuser) {
+        if (token) {
             navigate(from, { replace: true })
             toast.success('Login Sucessfully', { id: '02' })
         }
-    }, [navigate, Googleuser, Githubuser, Facebookuser,from])
+    }, [navigate, token,from])
     //GoogleSign in
     const signinGoogle = () => {
         signInWithGoogle();

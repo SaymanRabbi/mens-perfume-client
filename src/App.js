@@ -26,7 +26,9 @@ function App() {
       
         
         <Route path='/' element={
-          <Home></Home>
+          <RequireAuth>
+            <Home></Home>
+          </RequireAuth>
         }></Route>
       
         

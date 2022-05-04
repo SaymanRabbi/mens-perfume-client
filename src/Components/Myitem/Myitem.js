@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -5,19 +6,27 @@ import PageTittle from '../PageTittle/PageTittle';
 import Product from '../Products/Product';
 const Myitem = () => {
     const [items, setItems] = useState([]);
-    console.log(items)
     const [user] = useAuthState(auth);
-    console.log(user?.email)
+    console.log(user)
     useEffect(() => {
-        fetch(`http://localhost:5000/myitem?result=${user?.email}`).then(res=>res.json()).then(data=>setItems(data))
+        const getorders = async () => {
+            const { data } = await axios.get(`http://localhost:5000/myitem?result=${user?.email}`, {
+                headers:{
+                authorization:`Barere ${localStorage.getItem('token')}`
+                }
+            }) 
+            setItems(data)
+        }
+        getorders()
     },[user])
     return (
-        <div className='mt-5 grid md:grid-cols-3 gap-10 container mx-auto' style={
+        <div className='mt-5 grid md:grid-cols-2 xl:grid-cols-3 gap-10 container mx-auto' style={
             { minHeight: '100vh' }}>
-            <PageTittle location="Men's Perfume MyItem"></PageTittle>
+            
             {
                 items.map(pd=><Product product={pd} key={pd._id}></Product>)
-           }
+            }
+            <PageTittle location="Men's Perfume - MyItem"></PageTittle>
         </div>
     );
 };

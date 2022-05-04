@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   const { picture, name, price, Suplier, discription, quantity } = product;
-  console.log(product)
     return (
-        <div className=" bg-gray-200 antialiased  mx-auto w-3/4 md:w-full  text-gray-900  pb-5" style={{height:'650px',borderRadius:'8px'}}>
+        <div className=" bg-gray-200 antialiased mb-3  mx-auto w-3/4 md:w-full  text-gray-900  pb-5" style={{height:'650px',borderRadius:'8px'}}>
 <div>
     <img src={picture} alt=" random imgee" className="object-cover w-full  object-center rounded-lg shadow-md "style={{height:'390px'}}/>    
     <div className="relative px-4 -mt-16  ">
