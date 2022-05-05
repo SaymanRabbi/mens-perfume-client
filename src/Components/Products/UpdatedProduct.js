@@ -3,51 +3,42 @@ import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import PageTittle from '../PageTittle/PageTittle';
 const UpdatedProduct = () => {
-    const incressvalue = useRef(0)
+  const incressvalue = useRef(0)
     const { id } = useParams()
-    const [product, setProduct] = useState({})
+  const [product, setProduct] = useState({})
+  const { picture, name, price, Suplier, discription, quantity } = product;
     useEffect(() => {
         fetch(`https://assignment-11-server.herokuapp.com/product/${id}`).then(res=>res.json()).then(data=>setProduct(data))
     },[id,product])
-  const { picture, name, price, Suplier, discription, quantity } = product;
   const parseQuentity = parseInt(quantity) || 0
+  //updated value
+  const updated = (value, id) => {
+               fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify({quantity :value})})
+              .then((res) => res.json())
+              .then((data) => {
+                setProduct(data)
+              })
+  }
  //delevery product
     const deliveryproduct = () => {
         const newRest = parseQuentity - 1;
         // setRest(newRest);
       if (quantity > 0) {
-        fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({quantity :newRest}),
-     })
-       .then((res) => res.json())
-       .then((data) => {
-         setProduct(data)
-       })
-       toast.success('Item Delevery SucessFully',{id:'itemadd'})
-  }
-         }
+        updated(newRest, id)
+        toast.success('Item Deleviery Sucessfully', { id: 'Deleviery' })
+      }
+  } 
 // incress product
     const incressProduct = () => {
       const newvalue = parseQuentity + parseInt(incressvalue.current.value);
         if (newvalue) {
-            fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-               body: JSON.stringify({quantity :newvalue}),})
-        .then((res) => res.json())
-        .then((data) => {
-          setProduct(data)
-        })
-          toast.success('Item Added Sucessfully',{id:'itemadd'})
+            updated(newvalue,id)
+            toast.success('Item Added Sucessfully',{id:'itemadd'})
     }
   }
-  useEffect(() =>{
-    if (quantity <0) {
-      toast.error('Out Of Stouck',{id:'out'})
-    }
-  },[quantity])
   
     return (
         <div className='md:w-2/4 w-3/4  mx-auto my-10 bg-gray-200 antialiased text-gray-900 rounded py-5' style={{minHeight:'100vh'}}>

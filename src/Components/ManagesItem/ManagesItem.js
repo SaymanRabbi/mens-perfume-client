@@ -12,8 +12,9 @@ const ManagesItem = () => {
             const { data } = await axios.get('https://assignment-11-server.herokuapp.com/product?location=manages')
             setProducts(data);
         }
-        getProductData()
-    }, [])
+        getProductData();
+        // console.log(products)
+    }, [products])
     const deleteProduct = (id) => {
         Swal.fire({
             title: 'Are you sure?',
