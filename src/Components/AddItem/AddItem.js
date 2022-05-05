@@ -4,27 +4,27 @@ import './Additem.css'
 import auth from '../../firebase.init'
 import { useNavigate } from "react-router-dom";
 import PageTittle from "../PageTittle/PageTittle";
+import axios from "axios";
 const AddItem = () => {
     const navigate =useNavigate()
     const [user] = useAuthState(auth);
+    console.log(user.email)
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
-        fetch('https://assignment-11-server.herokuapp.com/product', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify(data)
-        }).then(res => res.json()).then(data => console.log(data))
+        const formdata = data
+        const sendData = async () => {
+            const { data } = await axios.post(`https://assignment-11-server.herokuapp.com/product?email=${user?.email}`, formdata);
+        }
+        sendData()
         reset()
         navigate('/managesitem')
     };
   
     return (
-        <div className='minheights' style={{ minHeight: '100vh' }}>
+        <div className='minheights'>
             <PageTittle location="Men's Perfume - AddItem"></PageTittle>
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full h-3/4  md:w-2/4 mx-auto  rounded bg-white px-10 py-5'>
-            
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full  md:w-2/4 mx-auto  '>
+            <div className="bg-white px-10 py-5 rounded ">
             <div>
             <input  className='w-full h-8 input' placeholder='Item Name' {...register("name")} required/>
           </div>
@@ -52,7 +52,8 @@ const AddItem = () => {
         
                 <div className="text-center">
                 <input className='px-4 py-2 mt-3 bg-black rounded text-white' type="submit" value='Add Item' />
-       </div>
+                    </div>
+                    </div>
       </form>
             </div>
        

@@ -31,7 +31,6 @@ const UpdatedProduct = () => {
 // incress product
     const incressProduct = () => {
       const newvalue = parseQuentity + parseInt(incressvalue.current.value);
-      console.log(parseQuentity)
         if (newvalue) {
             fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
                 method: 'PUT',

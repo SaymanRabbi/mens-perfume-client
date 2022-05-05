@@ -10,6 +10,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import PageTittle from '../PageTittle/PageTittle';
 import axios from 'axios';
 import useToken from '../../hooks/useToken';
+import register from '../../Images/logo.png'
 //   import { faCoffee } from '@fortawesome'
 const Register = () => {
     const [checked,setChecked]=useState(false)
@@ -87,7 +88,6 @@ const Register = () => {
             const value = email.value
             const { data } = await axios.post('https://assignment-11-server.herokuapp.com/token', {value})
              localStorage.setItem('token',data.createToken)
-           
           }
           else {
               toast.error('All Filed Required',{id:'009'})
@@ -102,7 +102,9 @@ const Register = () => {
           <PageTittle location="Men's Perfume - Register"></PageTittle>
             <div className='login-form'>
                 <form onSubmit={ handelSignup} className='w-3/4 md:w-2/4 mt-5 mb-5 md:px-20 px-3 py-5 shadow-md bg-white rounded'>
-                    <h2 className='text-center mb-10'><span className='text-3xl login-title'>Register</span></h2>
+            <h2 className='mb-10 flex items-center justify-center'><span className='text-3xl login-title'>Register</span>
+            <img src={register} alt="" />
+            </h2>
                     <div className='input-group mt-2 mb-6'>
                         
                         <input type="text" onBlur={handelname} name='name' className='w-full h-10 custom ' placeholder='Your Name' required />
