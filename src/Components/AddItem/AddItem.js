@@ -12,8 +12,14 @@ const AddItem = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
         const formdata = data
+        console.log(formdata)
         const sendData = async () => {
-            const { data } = await axios.post(`https://assignment-11-server.herokuapp.com/product?email=${user?.email}`, formdata);
+            const { data } = await axios.post(`https://assignment-11-server.herokuapp.com/product?email=${user?.email}`, formdata, {
+                headers: {
+                    authorization: `Barer ${localStorage.getItem('token')}`
+                }
+            });
+            console.log(data)
         }
         sendData()
         reset()
