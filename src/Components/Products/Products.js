@@ -5,7 +5,7 @@ const Products = () => {
     const [products, setProducts] = useState([])
  
     useEffect(() => {
-        fetch('https://assignment-11-server.herokuapp.com/product').then(res=>res.json()).then(data=>setProducts(data).slice(0,6))
+        fetch('https://assignment-11-server.herokuapp.com/product').then(res=>res.json()).then(data=>setProducts(data))
     },[])
     return (
         <>
