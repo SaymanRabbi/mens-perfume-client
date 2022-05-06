@@ -41,7 +41,7 @@ const UpdatedProduct = () => {
   }
   
     return (
-        <div className='md:w-2/4 w-3/4  mx-auto my-10 bg-gray-200 antialiased text-gray-900 rounded py-5' style={{minHeight:'100vh'}}>
+        <div className='md:w-2/4 w-3/4  mx-auto my-10 bg-gray-200 antialiased text-gray-900 rounded pb-10' style={{minHeight:'100vh'}}>
             <div>
             <PageTittle location="Men's Perfume Updated Product"></PageTittle>
     <img src={picture} alt=" random imgee" className="object-cover w-full  object-center rounded-lg shadow-md "/>    

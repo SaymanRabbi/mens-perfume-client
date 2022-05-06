@@ -9,7 +9,7 @@ const ManagesItem = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const getProductData = async () => {
-            const { data } = await axios.get('https://assignment-11-server.herokuapp.com/product?location=manages')
+            const { data } = await axios.get('https://assignment-11-server.herokuapp.com/product')
             setProducts(data);
         }
         getProductData();
