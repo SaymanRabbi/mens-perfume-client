@@ -23,7 +23,7 @@ const AddItem = () => {
         }
         sendData()
         reset()
-        navigate('/managesitem')
+        navigate('/')
     };
   
     return (
