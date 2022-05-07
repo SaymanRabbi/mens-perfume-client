@@ -7,14 +7,23 @@ import PageTittle from '../PageTittle/PageTittle';
 import axios from 'axios';
 const ManagesItem = () => {
     const [products, setProducts] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [active,setActive] = useState(0)
+    useEffect(() => {
+        fetch('http://localhost:5000/productCount').then(res => res.json()).then(data => {
+            const count = data.result;
+            const pages = Math.ceil(count / 6)
+            setPageCount(pages)
+        })
+    },[])
     useEffect(() => {
         const getProductData = async () => {
-            const { data } = await axios.get('https://assignment-11-server.herokuapp.com/product?location=manages')
+            const { data } = await axios.get(`https://assignment-11-server.herokuapp.com/product?page=${active}&size=${6}`)
             setProducts(data);
         }
         getProductData();
         // console.log(products)
-    }, [products])
+    }, [active])
     const deleteProduct = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -94,7 +103,12 @@ const ManagesItem = () => {
                 <Link to='/addItem'>
                 <button className='bg-white text-black px-3 py-2 font-semibold rounded'>Add New item</button>
                 </Link>
-           </div>
+            </div>
+            <div className='w-2/4 mx-auto text-center my-5'>
+                {
+                    [...Array(pageCount).keys()].map(num => <button key={num} className={`bg-white px-5 mx-2 py-1 rounded cursor-pointer text-xl font-bold ${active===num?'bg-blue-500 text-white':""}`} onClick={()=>setActive(num)}>{num}</button>)
+                }
+            </div>
         </div>
     );
 };

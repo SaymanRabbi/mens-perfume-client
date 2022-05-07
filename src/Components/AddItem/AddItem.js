@@ -38,7 +38,7 @@ const AddItem = () => {
             <input value={user?.email} className='w-full h-8 input' {...register("email")} readOnly/>
             </div>
             <div>
-            <input value={user?.displayName} className='w-full h-8 input' {...register("Suplier")} readOnly/>
+            <input value={user?.displayName||'Not Found Name'} className='w-full h-8 input' {...register("Suplier")} readOnly/>
             </div>
            
                 <div>

@@ -7,6 +7,7 @@ import { signOut } from 'firebase/auth';
 import logo from '../../Images/logo.png'
 const Header = () => {
   const [user,] = useAuthState(auth);
+  console.log(user)
   const logout = () => {
     signOut(auth);
   };
