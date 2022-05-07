@@ -1,7 +1,5 @@
 import React from 'react';
 import PageTittle from '../PageTittle/PageTittle';
-import img1 from '../../Images/javascript-vs-nodejs.png'
-
 const Blog = () => {
     return (
         <div style={{ minHeight: '100vh' }}>
