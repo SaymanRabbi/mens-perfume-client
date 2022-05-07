@@ -10,7 +10,7 @@ const ManagesItem = () => {
     const [pageCount, setPageCount] = useState(0);
     const [active,setActive] = useState(0)
     useEffect(() => {
-        fetch('http://localhost:5000/productCount').then(res => res.json()).then(data => {
+        fetch('https://assignment-11-server.herokuapp.com/productCount').then(res => res.json()).then(data => {
             const count = data.result;
             const pages = Math.ceil(count / 6)
             setPageCount(pages)
@@ -52,7 +52,7 @@ const ManagesItem = () => {
         
     }
     return (
-        <div className='px-10' style={{ minHeight: '100vh' }}>
+        <div   style={{ minHeight: '100vh' }}>
             <PageTittle location="Men's Perfume - ManagesItem"></PageTittle>
             <h1 className='text-center text-3xl font-bold mt-5 mb-4 text-white'>Manages Inventory</h1>
           
@@ -63,16 +63,16 @@ const ManagesItem = () => {
                     <th className="border-r p-2 text-left">
                        Name
                     </th>
-                    <th className="p-2 border-r text-left">
+                    <th className=" border-r text-left">
                     Price
                     </th>
-                    <th className="p-2 border-r text-left">
+                    <th className=" border-r text-left">
                     Suplier
                     </th>
-                    <th className="p-2 border-r text-left">
+                    <th className=" border-r text-left">
                     Quantity
                     </th>
-                    <th className="p-2 border-r text-left">
+                    <th className=" border-r text-left">
                     Action
                     </th>
                    

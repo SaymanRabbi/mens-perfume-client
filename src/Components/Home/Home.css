@@ -2,3 +2,9 @@
     min-height: 100vh;
     background-color: #183250;
 }
+.happyclient{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../Images/client.jpg);
+    background-size: cover;
+    background-position: center;
+    background-color: #183250;
+}

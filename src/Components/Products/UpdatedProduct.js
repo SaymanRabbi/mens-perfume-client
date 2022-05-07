@@ -12,7 +12,7 @@ const UpdatedProduct = () => {
     },[id,product])
   const parseQuentity = parseInt(quantity) || 0;
   //updated value
-  const updated = (value, id) => {
+  const updated = (value, id,toastvalue) => {
                fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -20,6 +20,7 @@ const UpdatedProduct = () => {
               .then((res) => res.json())
               .then((data) => {
                 setProduct(data)
+                toast.success(toastvalue, { id: 'Deleviery' })
               })
   }
  //delevery product
@@ -27,16 +28,15 @@ const UpdatedProduct = () => {
         const newRest = parseQuentity - 1;
         // setRest(newRest);
       if (quantity > 0) {
-        updated(newRest, id)
-        toast.success('Item Deleviery Sucessfully', { id: 'Deleviery' })
+        updated(newRest, id,'Item Deleviery Sucessfully')
+       
       }
   } 
 // incress product
     const incressProduct = () => {
       const newvalue = parseQuentity + parseInt(incressvalue.current.value);
         if (newvalue) {
-            updated(newvalue,id)
-            toast.success('Item Added Sucessfully',{id:'itemadd'})
+            updated(newvalue,id,'Item Added Sucessfully')
     }
   }
   

@@ -28,7 +28,7 @@ const AddItem = () => {
   
     return (
         <div className='minheights'>
-            <PageTittle location="Men's Perfume - AddItem"></PageTittle>
+           
             <form onSubmit={handleSubmit(onSubmit)} className='w-full  md:w-2/4 mx-auto  '>
             <div className="bg-white px-10 py-5 rounded ">
             <div>
@@ -60,7 +60,8 @@ const AddItem = () => {
                 <input className='px-4 py-2 mt-3 bg-black rounded text-white' type="submit" value='Add Item' />
                     </div>
                     </div>
-      </form>
+            </form>
+            <PageTittle location="Men's Perfume - AddItem"></PageTittle>
             </div>
        
     );
