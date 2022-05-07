@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Baner from '../Baner/Baner';
 import MakeDifferent from '../MakeDifferent/MakeDifferent';
 import PageTittle from '../PageTittle/PageTittle';
@@ -8,6 +8,13 @@ import CountUp from 'react-countup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faCode,faGift } from '@fortawesome/free-solid-svg-icons';
 const Home = () => {
+    const [products,setProducts]=useState(0)
+    useEffect(() => {
+        fetch('https://assignment-11-server.herokuapp.com/productCount').then(res => res.json()).then(data => {
+            const count = parseInt(data.result);
+            setProducts(count)
+        })
+    },[])
     return (
         <div className='minheight'>
             <PageTittle location="Men's Perfume - Home"></PageTittle>
@@ -22,7 +29,7 @@ const Home = () => {
                     <h2 className='text-center'><span className='text-xl text-white font-bold uppercase'>Senior Developer</span></h2>
                 </div>
                 <div>
-                <h2 className='text-white font-bold mb-2 text-5xl text-center'>{<CountUp end={123} />}+ <FontAwesomeIcon className='text-blue-700' icon={faGift}></FontAwesomeIcon> </h2>
+                <h2 className='text-white font-bold mb-2 text-5xl text-center'>{<CountUp end={products} />}+ <FontAwesomeIcon className='text-blue-700' icon={faGift}></FontAwesomeIcon> </h2>
                     <h2 className='text-center'><span className='text-xl text-white font-bold uppercase '>Avilabel product</span></h2>
                 </div>
             </div>
