@@ -20,7 +20,10 @@ const Useicon = () => {
             navigate(from, { replace: true })
             toast.success('Login Sucessfully', { id: '02' })
         }
-    }, [navigate, token,from])
+        else if (Githubuser || Facebookuser){
+            navigate('/')
+        }
+    }, [navigate, token,from,Facebookuser,Githubuser])
     //GoogleSign in
     const signinGoogle = () => {
         signInWithGoogle();
