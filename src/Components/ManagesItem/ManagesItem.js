@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
 import PageTittle from '../PageTittle/PageTittle';
 import axios from 'axios';
+import useDeleteProduct from '../../hooks/useDeleteProduct';
 const ManagesItem = () => {
-    const [products, setProducts] = useState([]);
+    //using hooks
+    const[items, setItems, deleteProduct] = useDeleteProduct([])
     const [pageCount, setPageCount] = useState(0);
     const [active,setActive] = useState(0)
     useEffect(() => {
@@ -19,38 +20,12 @@ const ManagesItem = () => {
     useEffect(() => {
         const getProductData = async () => {
             const { data } = await axios.get(`https://assignment-11-server.herokuapp.com/product?page=${active}&size=${6}`)
-            setProducts(data);
+            setItems(data);
         }
         getProductData();
         // console.log(products)
-    }, [active])
-    const deleteProduct = (id) => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-              if (result.isConfirmed) {
-                fetch(`https://assignment-11-server.herokuapp.com/product/${id}`, {
-                method:'DELETE'
-            }).then(res => res.json()).then(data => {
-                const rest = products.filter(pd => pd._id !== id);
-                setProducts(rest)
-            })
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-            }
-          })
-       
-        
-    }
+    }, [active, setItems])
+   
     return (
         <div   style={{ minHeight: '100vh' }}>
             <PageTittle location="Men's Perfume - ManagesItem"></PageTittle>
@@ -81,7 +56,7 @@ const ManagesItem = () => {
             </thead>
             <tbody>
                         {
-                            products.map((data, index) => <tr key={index}    style={{border:'1px solid white'}}>
+                            items.map((data, index) => <tr key={index}    style={{border:'1px solid white'}}>
                                 <td className='text-white py-3 border-r-2'>{data?.name}</td>
                                 <td className='text-white border-r-2'>{data?.price}</td>
                                 <td className='text-white border-r-2'>{data?.Suplier}</td>
