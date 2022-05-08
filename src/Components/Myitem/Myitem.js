@@ -11,7 +11,7 @@ import useDeleteProduct from '../../hooks/useDeleteProduct';
 const Myitem = () => {
     const [items, setItems, deleteProduct] = useDeleteProduct([]);
     const [user] = useAuthState(auth);
-    const navigate = useNavigate()
+    const navigate = useNavigate() 
     useEffect(() => {
         const getorders = async () => {
             try {

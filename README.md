@@ -28,3 +28,7 @@ your product;
 ##### for server site
 
 - mongodb
+
+* cors for cors connection
+* express
+* node.js
